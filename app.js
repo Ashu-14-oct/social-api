@@ -1,4 +1,5 @@
 require('dotenv').config();
+const helmet = require("helmet");
 const express = require('express');
 const PORT = process.env.PORT || 5000;
 const mongoConnection = require('./config/mongoose');
@@ -7,6 +8,7 @@ const cors = require('cors');
 const app = express();
 
 //middlewares
+app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
